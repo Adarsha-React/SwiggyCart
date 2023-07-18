@@ -1,7 +1,9 @@
 const Header = () => {
   return (
     <div className="flex justify-between px-16 py-3 shadow-md text-black font-bold">
-      <div className="cursor-pointer">SwiggyCart</div>
+      <a href="/">
+        <div className="cursor-pointer">DeliveryPoint</div>
+      </a>
       <div className="flex relative cursor-pointer">
         <div>
           <svg

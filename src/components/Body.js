@@ -1,23 +1,30 @@
+import { useEffect, useState } from "react";
+import { RES_CDN_URL, RES_DETL_URL } from "../constant";
+import RestaurantCard from "./RestaurantCard";
+
 const Body = () => {
-  return (
-    <div className="grid grid-cols-5 gap-2 w-2/3 mx-auto mt-4">
-      <div className="border p-2">
-        <img
-          src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/zrrcwedyowtr23lwmpp7"
-          alt="resImage"
-        />
-        <div className="my-2">
-          <h6 className="text-[10px] font-bold">Anand Sweets & Saviours</h6>
-          <p className="text-[9px]">Sweets, Snacks, Desserts</p>
-        </div>
-        <div className="flex justify-between text-[8px] mb-1">
-          <span>4.4 starts</span>
-          <span>-</span>
-          <span>31 MIN</span>
-          <span>-</span>
-          <span>₹250 FOR TWO</span>
-        </div>
-      </div>
+  const [restaurantList, setRestaurantList] = useState(null);
+
+  useEffect(() => {
+    fetchRestaurantsData(RES_DETL_URL);
+  }, []);
+
+  const fetchRestaurantsData = async (RES_DETL_URL) => {
+    const data = await fetch(RES_DETL_URL);
+    const json = await data.json();
+    setRestaurantList(json?.data?.cards[2]?.data?.data?.cards);
+    console.log(json?.data?.cards[2]?.data?.data?.cards);
+  };
+
+  if (restaurantList?.length === 0) return null;
+
+  return !restaurantList ? (
+    <h2>Loading...</h2>
+  ) : (
+    <div className="grid grid-cols-4 gap-4 w-[65%] mx-auto mt-4">
+      {restaurantList?.map((restaurant) => (
+        <RestaurantCard restaurant={restaurant} />
+      ))}
     </div>
   );
 };
