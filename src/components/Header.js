@@ -1,8 +1,11 @@
+import AppLogo from "../assets/images/AppLogo.jpg";
 const Header = () => {
   return (
     <div className="flex justify-between px-16 py-3 shadow-md text-black font-bold">
       <a href="/">
-        <div className="cursor-pointer">DeliveryPoint</div>
+        <div className="cursor-pointer">
+          <img className="w-14 h-10" src={AppLogo} alt="app logo" />
+        </div>
       </a>
       <div className="flex relative cursor-pointer">
         <div>
