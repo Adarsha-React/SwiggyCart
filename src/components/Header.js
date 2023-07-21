@@ -1,4 +1,5 @@
-import AppLogo from "../assets/images/AppLogo.jpg";
+import { Link } from "react-router-dom";
+import AppLogo from "../assets/images/AppLogo.png";
 const Header = () => {
   return (
     <div className="flex justify-between px-16 py-3 shadow-md text-black font-bold">
@@ -8,6 +9,11 @@ const Header = () => {
         </div>
       </a>
       <div className="flex relative cursor-pointer">
+        <div>
+          <h1 className="pr-10 font-mono text-sm">
+            <Link to={"/about"}>About</Link>
+          </h1>
+        </div>
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

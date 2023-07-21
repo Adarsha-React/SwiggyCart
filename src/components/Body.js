@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { RES_CDN_URL, RES_DETL_URL } from "../constant";
+import { RES_DETL_URL } from "../constant";
 import RestaurantCard from "./RestaurantCard";
 
 const Body = () => {
@@ -18,12 +18,13 @@ const Body = () => {
 
   if (restaurantList?.length === 0) return null;
 
+  console.log(restaurantList);
   return !restaurantList ? (
     <h2>Loading...</h2>
   ) : (
     <div className="grid grid-cols-4 gap-4 w-[65%] mx-auto mt-4">
       {restaurantList?.map((restaurant) => (
-        <RestaurantCard restaurant={restaurant} />
+        <RestaurantCard restaurant={restaurant} key={restaurant?.data?.id} />
       ))}
     </div>
   );

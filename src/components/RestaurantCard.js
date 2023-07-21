@@ -36,3 +36,19 @@ const RestaurantCard = ({ restaurant }) => {
   );
 };
 export default RestaurantCard;
+
+// export const sampleHOC = (InputComponent) => {
+//   return (props) => {
+//     /** If any props are passed or HOC then those are received here, as it is the main function
+//      * which returns some piece of JSX*/
+//     return (
+//       /**JSX part which will be returned in enhanced version */
+//       <div>
+//         <div>
+//           <h1>Add any new feature!!</h1>
+//         </div>
+//         <InputComponent {...props} />
+//       </div>
+//     );
+//   };
+// };
